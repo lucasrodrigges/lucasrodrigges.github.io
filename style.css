@@ -1,0 +1,20 @@
+body {
+  background-color: #b53bbd;
+  font-family: 'Comfortaa', cursive;
+}
+h1 {
+  text-align: center;
+  font-size: 70px;
+}
+h2, p, ol, ul {
+  text-align: center;
+}
+li {
+  list-style-type: none;
+}
+#lucas-pic {
+  border-radius:48%;
+  display: block;
+  margin-left: auto;
+  margin-right:auto
+}
