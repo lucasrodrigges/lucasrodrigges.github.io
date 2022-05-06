@@ -1,16 +1,18 @@
 body {
-  background-color: #b53bbd;
+  background-color: #e68a6c;
   font-family: 'Comfortaa', cursive;
 }
 h1 {
+  background-color: #ffcc7a;
   text-align: center;
   font-size: 70px;
 }
-h2, p, ol, ul {
-  text-align: center;
+h2 {
+  background-color: #ffe6bd;
+  font-size: 30px;
 }
-li {
-  list-style-type: none;
+h2, p, ol, ul {
+    text-align: center;
 }
 #lucas-pic {
   border-radius:48%;
