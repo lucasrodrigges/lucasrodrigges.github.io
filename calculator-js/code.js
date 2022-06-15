@@ -1,11 +1,11 @@
 const QS = (pam) => document.querySelector(pam);
 const QSA = (pam) => document.querySelectorAll(pam);
 
-const input_display = (e) => {
+const operation_display = (e) => {
   const TEXT = e.target.innerText;
-  const INPUT_DISPLAY = QS('#input-display');
-
-  INPUT_DISPLAY.value += TEXT;
+  const OPERATION_DISPLAY = QS('#operation-display');
+  
+  OPERATION_DISPLAY.value += TEXT;
 }
 
 const calculate = () => {
@@ -17,20 +17,26 @@ const calculate = () => {
 
 const check_calc = (e) => {
   const INPUT_DISPLAY = QS('#input-display')
-  let str = INPUT_DISPLAY.value;
+  const OPERATION_DISPLAY = QS('#operation-display');
+  let str = OPERATION_DISPLAY.value;
 
-  if (INPUT_DISPLAY.value = undefined) INPUT_DISPLAY.value = '';
+  if (OPERATION_DISPLAY.value === '') INPUT_DISPLAY.value = '';
+  
   if((str[0] === '/' || str[0] === '*' )) {
-    INPUT_DISPLAY.value = '';
+    OPERATION_DISPLAY.value = '';
     return alert ('Operação inválida!');
   }
+  
+  let arr_operators = ['+', '-', '*', '/'];
+
   for (let i = 0; i < str.length; i++) {
     if (str[i] === '+' || str[i] === '-' || str[i] === '/' || str[i] === '*' ) {
       if (str[i + 1]) {
-        if (str[i] === str[i + 1]) {
-          INPUT_DISPLAY.value = '';
+        if (str[i+1] === '+' || str[i+1] === '-' || str[i+1] === '/' || str[i+1] === '*' ) {
+          OPERATION_DISPLAY.value = '';
           return alert ('Operação inválida!');
         }
+              
       } 
     }
   }
@@ -40,16 +46,17 @@ window.addEventListener('load', () => {
   const BTN_NUMBERS = QSA('.numbers');
   const BTN_OPERATORS = QSA('.operators');
   const BTN_EQUAL = QS('#equal');
-  const INPUT_DISPLAY = QS('#input-display');
+  // const INPUT_DISPLAY = QS('#input-display');
   const EVERY_BTNS = QSA('button');
   const OPERATION_DISPLAY = QS('#operation-display');
   
   BTN_NUMBERS.forEach(btn => {
-    btn.addEventListener('click', input_display);
+    btn.addEventListener('click', operation_display);
+    btn.addEventListener('click', calculate);
   });
 
   BTN_OPERATORS.forEach(btn => {
-    btn.addEventListener('click', input_display);
+    btn.addEventListener('click', operation_display);
   });
 
   EVERY_BTNS.forEach(btn => {
@@ -57,7 +64,8 @@ window.addEventListener('load', () => {
   });
 
   BTN_EQUAL.addEventListener('click', calculate);
-  INPUT_DISPLAY.addEventListener('input', check_calc);
   OPERATION_DISPLAY.addEventListener('input', calculate);
-  
+  OPERATION_DISPLAY.addEventListener('input', check_calc);
+  OPERATION_DISPLAY.addEventListener('click', calculate);
+
 })
