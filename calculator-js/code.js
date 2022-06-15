@@ -42,10 +42,18 @@ const check_calc = (e) => {
   }
 }
 
+const ac_calculator = () => {
+  const INPUT_DISPLAY = QS('#input-display');
+  const OPERATION_DISPLAY = QS('#operation-display');
+  
+  INPUT_DISPLAY.value = '';
+  OPERATION_DISPLAY.value = '';
+}
+
 window.addEventListener('load', () => {
   const BTN_NUMBERS = QSA('.numbers');
   const BTN_OPERATORS = QSA('.operators');
-  const BTN_EQUAL = QS('#equal');
+  const BTN_AC = QS('#reset');
   // const INPUT_DISPLAY = QS('#input-display');
   const EVERY_BTNS = QSA('button');
   const OPERATION_DISPLAY = QS('#operation-display');
@@ -63,7 +71,7 @@ window.addEventListener('load', () => {
     btn.addEventListener('click', check_calc);
   });
 
-  BTN_EQUAL.addEventListener('click', calculate);
+  BTN_AC.addEventListener('click', ac_calculator);
   OPERATION_DISPLAY.addEventListener('input', calculate);
   OPERATION_DISPLAY.addEventListener('input', check_calc);
   OPERATION_DISPLAY.addEventListener('click', calculate);
