@@ -18,7 +18,7 @@ const check_calc = (e) => {
   const INPUT_DISPLAY = QS('#input-display')
   let str = INPUT_DISPLAY.value;
 
-  if((str[0] === '+' || str[0] === '-' || str[0] === '/' || str[0] === '*' )) {
+  if((str[0] === '/' || str[0] === '*' )) {
     INPUT_DISPLAY.value = '';
     return alert ('Operação inválida!');
   }
