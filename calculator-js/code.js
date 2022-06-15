@@ -10,14 +10,16 @@ const input_display = (e) => {
 
 const calculate = () => {
   const INPUT_DISPLAY = QS('#input-display');
-
-  INPUT_DISPLAY.value = eval(INPUT_DISPLAY.value);
+  const OPERATION_DISPLAY = QS('#operation-display');
+  
+  INPUT_DISPLAY.value = eval(OPERATION_DISPLAY.value);
 }
 
 const check_calc = (e) => {
   const INPUT_DISPLAY = QS('#input-display')
   let str = INPUT_DISPLAY.value;
 
+  if (INPUT_DISPLAY.value = undefined) INPUT_DISPLAY.value = '';
   if((str[0] === '/' || str[0] === '*' )) {
     INPUT_DISPLAY.value = '';
     return alert ('Operação inválida!');
@@ -40,7 +42,8 @@ window.addEventListener('load', () => {
   const BTN_EQUAL = QS('#equal');
   const INPUT_DISPLAY = QS('#input-display');
   const EVERY_BTNS = QSA('button');
-
+  const OPERATION_DISPLAY = QS('#operation-display');
+  
   BTN_NUMBERS.forEach(btn => {
     btn.addEventListener('click', input_display);
   });
@@ -55,5 +58,6 @@ window.addEventListener('load', () => {
 
   BTN_EQUAL.addEventListener('click', calculate);
   INPUT_DISPLAY.addEventListener('input', check_calc);
+  OPERATION_DISPLAY.addEventListener('input', calculate);
   
 })

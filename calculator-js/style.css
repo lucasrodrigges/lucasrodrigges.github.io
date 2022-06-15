@@ -7,6 +7,7 @@
 #calculator-container {
   display: flex;
   justify-content: center;
+  margin-top: 150px;
 
 }
 #numbers-container {
@@ -14,6 +15,11 @@
 
 }
 #input-display{
+  width: 100%;
+  height: 75px;
+
+}
+#operation-display {
   width: 100%;
   height: 75px;
 
@@ -37,7 +43,7 @@
 
 }
 #plus {
- flex-grow: 8;
+
 
 }
 .operators {
@@ -51,6 +57,7 @@
 #equal {
   width: 100%;
   height: 50px;
+  flex-grow: 4;
 
 }
 #zero-container {
