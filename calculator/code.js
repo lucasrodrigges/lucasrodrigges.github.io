@@ -26,8 +26,6 @@ const check_calc = (e) => {
     OPERATION_DISPLAY.value = '';
     return alert ('Operação inválida!');
   }
-  
-  let arr_operators = ['+', '-', '*', '/'];
 
   for (let i = 0; i < str.length; i++) {
     if (str[i] === '+' || str[i] === '-' || str[i] === '/' || str[i] === '*' ) {
